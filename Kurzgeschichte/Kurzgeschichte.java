@@ -1,33 +1,24 @@
+import java.nio.file.*;
+import java.util.*;
 
-/**
- * Write a description of class Kurzgeschichte here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
 public class Kurzgeschichte
 {
-    // instance variables - replace the example below with your own
-    private int x;
 
-    /**
-     * Constructor for objects of class Kurzgeschichte
-     */
-    public Kurzgeschichte()
-    {
-        // initialise instance variables
-        x = 0;
+    public static void main(String[] args) throws Exception {
+        ArrayList<String> textDateien = new ArrayList();
+
+        for(int i = 1; i <= 9; i++) {
+            textDateien.add("teil_0" + i + ".txt");
+        }
+        for(int i = 10; i <= 12; i++) {
+            textDateien.add("teil_" + i + ".txt");
+        }
+        
+        for(String datei : textDateien) {
+            String dateiinhalt = new String(Files.readAllBytes(Paths.get(datei)));;
+            System.out.println(dateiinhalt);
+        }
+
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
-    }
 }
